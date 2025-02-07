@@ -10,6 +10,7 @@
   
   .formContent {
     flex: 1;
+    height: 66vh;
     padding: 2rem 4rem;
   }
   
@@ -62,7 +63,7 @@
   .input {
     width: 100%;
     padding: 0.75rem;
-    color: #143e70;
+    color: #2a507e;
     border: 1px solid #d6d9e6;
     border-radius: 8px;
     font-size: 1rem;
