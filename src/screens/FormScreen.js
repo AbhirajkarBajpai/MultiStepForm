@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar"
 import PlanSelection from "../components/PlanSelection"
 import AddOns from "../components/AddOns"
 import styles from "../styles/FormScreen.module.css"
+import PersonalInfoForm from "../components/PersonalInfoForm"
 // import Summary from "../components/Summary"
 // import ThankYou from "../components/ThankYou"
 
@@ -26,55 +27,6 @@ export default function FormScreen() {
     dispatch(setStep(4))
   }
 
-  const renderPersonalInfo = () => (
-    <form onSubmit={handlePersonalInfoSubmit} className={styles.form}>
-      <h1 className={styles.title}>Personal info</h1>
-      <p className={styles.description}>Please provide your name, email address, and phone number.</p>
-
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>Name</label>
-        <input
-          type="text"
-          className={styles.input}
-          value={formData.personalInfo.name}
-          onChange={(e) => dispatch(updatePersonalInfo({ name: e.target.value }))}
-          placeholder="e.g. Stephen King"
-          required
-        />
-      </div>
-
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>Email Address</label>
-        <input
-          type="email"
-          className={styles.input}
-          value={formData.personalInfo.email}
-          onChange={(e) => dispatch(updatePersonalInfo({ email: e.target.value }))}
-          placeholder="e.g. stephenking@lorem.com"
-          required
-        />
-      </div>
-
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>Phone Number</label>
-        <input
-          type="tel"
-          className={styles.input}
-          value={formData.personalInfo.phone}
-          onChange={(e) => dispatch(updatePersonalInfo({ phone: e.target.value }))}
-          placeholder="e.g. +1 234 567 890"
-          required
-        />
-      </div>
-
-      <div className={styles.buttonGroup}>
-        <div></div>
-        <button type="submit" className={`${styles.button} ${styles.nextButton}`}>
-          Next Step
-        </button>
-      </div>
-    </form>
-  )
 
   const renderPlanSelection = () => (
     <form onSubmit={handlePlanSubmit} className={styles.form}>
@@ -116,7 +68,7 @@ export default function FormScreen() {
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.formContent}>
-        {currentStep === 1 && renderPersonalInfo()}
+        {currentStep === 1 && <PersonalInfoForm styles={styles} formData={formData} updatePersonalInfo={updatePersonalInfo} dispatch={dispatch} handlePersonalInfoSubmit={handlePersonalInfoSubmit}/>}
         {currentStep === 2 && renderPlanSelection()}
         {currentStep === 3 && renderAddOns()}
         {/* {currentStep === 4 && <Summary />}
