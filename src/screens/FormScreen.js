@@ -4,6 +4,8 @@ import Sidebar from "../components/Sidebar"
 import PlanSelection from "../components/PlanSelection"
 import AddOns from "../components/AddOns"
 import styles from "../styles/FormScreen.module.css"
+// import Summary from "../components/Summary"
+// import ThankYou from "../components/ThankYou"
 
 export default function FormScreen() {
   const dispatch = useDispatch()
@@ -117,6 +119,8 @@ export default function FormScreen() {
         {currentStep === 1 && renderPersonalInfo()}
         {currentStep === 2 && renderPlanSelection()}
         {currentStep === 3 && renderAddOns()}
+        {/* {currentStep === 4 && <Summary />}
+        {currentStep === 5 && <ThankYou />} */}
       </div>
     </div>
   )
