@@ -1,13 +1,14 @@
 .planGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.25vw;
     margin-bottom: 2rem;
   }
   
   .planCard {
     border: 1px solid #d6d9e6;
     border-radius: 8px;
+    width: 13vh;
     padding: 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -46,19 +47,22 @@
   
   .planName {
     color: #022959;
-    font-weight: 500;
+    /* font-weight: 500; */
     margin-bottom: 0.25rem;
+    font-family:'Ubuntu Bold';
   }
   
   .planPrice {
     color: #9699aa;
     font-size: 0.875rem;
+    font-family:'Ubuntu';
   }
   
   .freeMonths {
     color: #022959;
     font-size: 0.75rem;
     margin-top: 0.25rem;
+    font-family:'Ubuntu Medium';
   }
   
   .toggleContainer {
@@ -75,10 +79,12 @@
   .toggleLabel {
     color: #9699aa;
     font-weight: 500;
+    font-family: 'Ubuntu Bold';
   }
   
   .toggleLabel.active {
     color: #022959;
+    font-family: 'Ubuntu Bold';
   }
   
   .toggle {
