@@ -16,12 +16,14 @@
   .title {
     color: #022959;
     font-size: 2rem;
-    margin-bottom: -0.75rem;
+    margin-bottom: -0.25rem;
+    font-family: 'Ubuntu Bold';
   }
   
   .description {
     color: #9699aa;
-    /* margin-bottom: 2rem; */
+    font-family: 'Ubuntu';
+    margin-bottom: 2.5rem;
   }
   
   .form {
@@ -30,27 +32,41 @@
   
   .inputGroup {
     margin-bottom: 1.5rem;
+    position: relative;
   }
   
   .label {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
-    color: #022959;
+    color: #0e3b71;
+    font-weight: 400;
+    font-family: 'Ubuntu Medium';
   }
   
   .error {
+    position: absolute;
+    top: 0;
+    right:-6%;
     color: #ee374a;
     font-size: 0.875rem;
+    margin-top: 0.25rem;
+    font-family: 'Ubuntu Bold';
   }
+  
+  .inputError {
+    border: 1px solid #ee374a !important;
+  }
+  
   
   .input {
     width: 100%;
     padding: 0.75rem;
+    color: #143e70;
     border: 1px solid #d6d9e6;
     border-radius: 8px;
     font-size: 1rem;
-    font-weight: 600;
+    font-family: 'Ubuntu Bold';
   }
   
   .input:focus {
@@ -79,6 +95,7 @@
     border: none;
     position: relative;
     left: 6%;
+    font-family: 'Ubuntu Medium';
   }
   
   .backButton {
