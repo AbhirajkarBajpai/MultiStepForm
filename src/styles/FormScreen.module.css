@@ -16,12 +16,12 @@
   .title {
     color: #022959;
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: -0.75rem;
   }
   
   .description {
     color: #9699aa;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
   }
   
   .form {
@@ -50,6 +50,7 @@
     border: 1px solid #d6d9e6;
     border-radius: 8px;
     font-size: 1rem;
+    font-weight: 600;
   }
   
   .input:focus {
@@ -61,6 +62,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 4rem;
+    width: 100%;
   }
   
   .button {
@@ -71,9 +73,12 @@
   }
   
   .nextButton {
-    background: #022959;
+    background: #1d4980;
+    font-size: 1rem;
     color: white;
     border: none;
+    position: relative;
+    left: 6%;
   }
   
   .backButton {

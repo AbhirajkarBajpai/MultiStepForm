@@ -1,9 +1,13 @@
 .sidebar {
-    background-color: #6259ff;
-    padding: 2rem;
-    border-radius: 10px;
-    color: white;
-    width: 274px;
+  background-image: url(../assets/images/bg-sidebar-desktop.svg);
+  background-size: cover;  
+  background-position: center; 
+  background-repeat: no-repeat;
+  padding: 2.5rem;
+  border-radius: 10px;
+  color: white;
+  width: 210px;
+  height: auto;
   }
   
   .step {
