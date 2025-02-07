@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { setStep, updatePersonalInfo } from "../store/formSlice"
 import Sidebar from "../components/Sidebar"
 import PlanSelection from "../components/PlanSelection"
+import AddOns from "../components/AddOns"
 import styles from "../styles/FormScreen.module.css"
 
 export default function FormScreen() {
@@ -15,7 +16,12 @@ export default function FormScreen() {
 
   const handlePlanSubmit = (e) => {
     e.preventDefault()
-    // Would proceed to step 3 in a full implementation
+    dispatch(setStep(3))
+  }
+
+  const handleAddOnsSubmit = (e) => {
+    e.preventDefault()
+    dispatch(setStep(4))
   }
 
   const renderPersonalInfo = () => (
@@ -86,12 +92,31 @@ export default function FormScreen() {
     </form>
   )
 
+  const renderAddOns = () => (
+    <form onSubmit={handleAddOnsSubmit} className={styles.form}>
+      <h1 className={styles.title}>Pick add-ons</h1>
+      <p className={styles.description}>Add-ons help enhance your gaming experience.</p>
+
+      <AddOns />
+
+      <div className={styles.buttonGroup}>
+        <button type="button" className={`${styles.button} ${styles.backButton}`} onClick={() => dispatch(setStep(2))}>
+          Go Back
+        </button>
+        <button type="submit" className={`${styles.button} ${styles.nextButton}`}>
+          Next Step
+        </button>
+      </div>
+    </form>
+  )
+
   return (
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.formContent}>
         {currentStep === 1 && renderPersonalInfo()}
         {currentStep === 2 && renderPlanSelection()}
+        {currentStep === 3 && renderAddOns()}
       </div>
     </div>
   )

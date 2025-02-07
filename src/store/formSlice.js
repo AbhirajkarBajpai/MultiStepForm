@@ -12,6 +12,11 @@ const initialState = {
       type: "arcade",
       billing: "monthly",
     },
+    addons: {
+      onlineService: true,
+      largerStorage: true,
+      customizableProfile: false,
+    },
   },
 }
 
@@ -28,9 +33,12 @@ const formSlice = createSlice({
     updatePlan: (state, action) => {
       state.formData.plan = { ...state.formData.plan, ...action.payload }
     },
+    updateAddons: (state, action) => {
+      state.formData.addons = { ...state.formData.addons, ...action.payload }
+    },
   },
 })
 
-export const { setStep, updatePersonalInfo, updatePlan } = formSlice.actions
+export const { setStep, updatePersonalInfo, updatePlan, updateAddons } = formSlice.actions
 export default formSlice.reducer
 

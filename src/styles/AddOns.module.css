@@ -1,0 +1,63 @@
+.addonList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .addonCard {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    border: 1px solid #d6d9e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .addonCard:hover {
+    border-color: #483eff;
+  }
+  
+  .addonCard.selected {
+    border-color: #483eff;
+    background-color: #f8f9ff;
+  }
+  
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #d6d9e6;
+    border-radius: 4px;
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .checkbox.checked {
+    background-color: #483eff;
+    border-color: #483eff;
+  }
+  
+  .addonInfo {
+    flex: 1;
+  }
+  
+  .addonName {
+    color: #022959;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  
+  .addonDescription {
+    color: #9699aa;
+    font-size: 0.875rem;
+  }
+  
+  .addonPrice {
+    color: #483eff;
+    font-size: 0.875rem;
+  }
+  
+  
