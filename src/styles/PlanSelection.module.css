@@ -1,0 +1,109 @@
+.planGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .planCard {
+    border: 1px solid #d6d9e6;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .planCard:hover {
+    border-color: #483eff;
+  }
+  
+  .planCard.selected {
+    border-color: #483eff;
+    background-color: #f8f9ff;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .arcade {
+    background-color: #ffaf7e;
+  }
+  
+  .advanced {
+    background-color: #f9818e;
+  }
+  
+  .pro {
+    background-color: #483eff;
+  }
+  
+  .planName {
+    color: #022959;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  
+  .planPrice {
+    color: #9699aa;
+    font-size: 0.875rem;
+  }
+  
+  .freeMonths {
+    color: #022959;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+  
+  .toggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9ff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .toggleLabel {
+    color: #9699aa;
+    font-weight: 500;
+  }
+  
+  .toggleLabel.active {
+    color: #022959;
+  }
+  
+  .toggle {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    background-color: #022959;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .toggleCircle {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+  }
+  
+  .toggleChecked .toggleCircle {
+    transform: translateX(18px);
+  }
+  
+  

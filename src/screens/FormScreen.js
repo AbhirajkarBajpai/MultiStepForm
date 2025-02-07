@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { setStep, updatePersonalInfo } from "../store/formSlice"
-import Sidebar from '../components/Sidebar'
+import Sidebar from "../components/Sidebar"
+import PlanSelection from "../components/PlanSelection"
 import styles from "../styles/FormScreen.module.css"
 
 export default function FormScreen() {
@@ -72,7 +73,7 @@ export default function FormScreen() {
       <h1 className={styles.title}>Select your plan</h1>
       <p className={styles.description}>You have the option of monthly or yearly billing.</p>
 
-      {/* Plan selection UI would go here */}
+      <PlanSelection />
 
       <div className={styles.buttonGroup}>
         <button type="button" className={`${styles.button} ${styles.backButton}`} onClick={() => dispatch(setStep(1))}>
