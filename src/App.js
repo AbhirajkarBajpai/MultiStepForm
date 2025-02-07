@@ -1,12 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux"
+import { store } from "./store/store"
+import FormScreen from "./screens/FormScreen"
 
 function App() {
   return (
-    <div className="App">
-      This is multi_step Form
-    </div>
-  );
+    <Provider store={store}>
+      <FormScreen />
+    </Provider>
+  )
 }
+
 
 export default App;

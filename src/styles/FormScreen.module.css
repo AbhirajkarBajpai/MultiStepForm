@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    background: white;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    max-width: 940px;
+    margin: 2rem auto;
+  }
+  
+  .formContent {
+    flex: 1;
+    padding: 2rem 4rem;
+  }
+  
+  .title {
+    color: #022959;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    color: #9699aa;
+    margin-bottom: 2rem;
+  }
+  
+  .form {
+    max-width: 450px;
+  }
+  
+  .inputGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #022959;
+  }
+  
+  .error {
+    color: #ee374a;
+    font-size: 0.875rem;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d6d9e6;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .input:focus {
+    border-color: #483eff;
+    outline: none;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+  }
+  
+  .button {
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .nextButton {
+    background: #022959;
+    color: white;
+    border: none;
+  }
+  
+  .backButton {
+    color: #9699aa;
+    background: none;
+    border: none;
+  }
+  
+  

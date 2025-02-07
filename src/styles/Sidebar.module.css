@@ -1,0 +1,48 @@
+.sidebar {
+    background-color: #6259ff;
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
+    width: 274px;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stepNumber {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+  }
+  
+  .stepNumber.active {
+    background-color: #bfe2fd;
+    color: #022959;
+    border: none;
+  }
+  
+  .stepInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .stepLabel {
+    color: #abbcff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  
+  .stepTitle {
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  
