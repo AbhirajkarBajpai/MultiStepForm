@@ -47,18 +47,20 @@
   
   .addonName {
     color: #022959;
-    font-weight: 500;
     margin-bottom: 0.15rem;
+    font-family: 'Ubuntu Medium';
   }
   
   .addonDescription {
     color: #9699aa;
     font-size: 0.875rem;
+    font-family: 'Ubuntu';
   }
   
   .addonPrice {
     color: #483eff;
     font-size: 0.875rem;
+    font-family: 'Ubuntu Medium';
   }
 
 

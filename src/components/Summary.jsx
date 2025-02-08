@@ -59,7 +59,7 @@ export default function Summary() {
       <div className={styles.totalRow}>
         <span className={styles.totalLabel}>Total (per {isYearly ? "year" : "month"})</span>
         <span className={styles.totalPrice}>
-          ${totalPrice}/{isYearly ? "yr" : "mo"}
+          +${totalPrice}/{isYearly ? "yr" : "mo"}
         </span>
       </div>
     </div>
