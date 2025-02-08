@@ -38,7 +38,7 @@ const PersonalInfoForm = ({
       newErrors.phone = "Only numbers are allowed";
       isValid = false;
     } else if (phone.length !== 10) {
-      newErrors.phone = "Phone number must be exactly 10 digits";
+      newErrors.phone = "lenght should be 10";
       isValid = false;
     }
 
