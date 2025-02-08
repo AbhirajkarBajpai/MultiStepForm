@@ -27,3 +27,23 @@
   line-height: 1.5;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .message {
+    font-size: 0.875rem;
+  }
+
+  .icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.5rem;
+  }
+}
+

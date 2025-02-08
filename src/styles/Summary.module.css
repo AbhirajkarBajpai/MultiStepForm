@@ -74,3 +74,25 @@
   font-size: 1.25rem;
 }
 
+@media (max-width: 768px) {
+  .summaryCard {
+    padding: 1rem;
+  }
+
+  .planRow {
+    padding-bottom: 1rem;
+  }
+
+  .planName {
+    font-size: 0.875rem;
+  }
+
+  .addonRow {
+    margin-bottom: 0.75rem;
+  }
+
+  .totalRow {
+    padding: 1rem;
+  }
+}
+

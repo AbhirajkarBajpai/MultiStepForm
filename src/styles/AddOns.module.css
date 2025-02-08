@@ -60,5 +60,24 @@
     color: #483eff;
     font-size: 0.875rem;
   }
+
+
+  @media (max-width: 768px) {
+    .addonCard {
+      padding: 1rem;
+    }
+  
+    .checkbox {
+      margin-right: 1rem;
+    }
+  
+    .addonName {
+      font-size: 0.875rem;
+    }
+  
+    .addonDescription {
+      font-size: 0.75rem;
+    }
+  }
   
   

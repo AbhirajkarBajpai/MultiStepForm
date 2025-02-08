@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setStep, updatePersonalInfo } from "../store/formSlice";
 import Sidebar from "../components/Sidebar";
@@ -13,6 +13,20 @@ export default function FormScreen() {
   const dispatch = useDispatch();
   const { currentStep, formData } = useSelector((state) => state.form);
   const [isCompleted, setIsCompleted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+
   const handlePersonalInfoSubmit = () => {
     // e.preventDefault();
     dispatch(setStep(2));
@@ -42,7 +56,7 @@ export default function FormScreen() {
 
       <PlanSelection />
 
-      <div className={styles.buttonGroup}>
+      <div className={`${styles.buttonGroup} ${isMobile ? styles.mobileButtons : ""}`}>
         <button
           type="button"
           className={`${styles.button} ${styles.backButton}`}
@@ -69,7 +83,7 @@ export default function FormScreen() {
 
       <AddOns />
 
-      <div className={styles.buttonGroup}>
+      <div className={`${styles.buttonGroup} ${isMobile ? styles.mobileButtons : ""}`}>
         <button
           type="button"
           className={`${styles.button} ${styles.backButton}`}
@@ -94,7 +108,7 @@ export default function FormScreen() {
 
       <Summary />
 
-      <div className={styles.buttonGroup}>
+      <div className={`${styles.buttonGroup} ${isMobile ? styles.mobileButtons : ""}`}>
         <button type="button" className={`${styles.button} ${styles.backButton}`} onClick={() => dispatch(setStep(3))}>
           Go Back
         </button>

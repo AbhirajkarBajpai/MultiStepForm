@@ -121,5 +121,46 @@
   .backButton:hover{
     color: #1d4980;
   }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      background: #f0f6ff;
+      min-height: 100vh;
+    }
+  
+    .formContent {
+      padding: 1rem;
+      margin-top: -4.5rem; /* Overlap with sidebar */
+    }
+  
+    .form {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 5rem; /* Space for fixed buttons */
+    }
+  
+    .buttonGroup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: white;
+      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .description {
+      font-size: 0.875rem;
+    }
+  }
   
   

@@ -111,5 +111,28 @@
   .toggleChecked .toggleCircle {
     transform: translateX(18px);
   }
+
+
+  @media (max-width: 768px) {
+    .planGrid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  
+    .planCard {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+    }
+  
+    .icon {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+  
+    .toggleContainer {
+      margin-top: 1.5rem;
+    }
+  }
   
   
