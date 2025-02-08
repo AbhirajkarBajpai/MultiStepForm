@@ -61,7 +61,7 @@ export default function FormScreen() {
   );
 
   const renderAddOns = () => (
-    <form onSubmit={handleAddOnsSubmit} className={styles.form}>
+    <form onSubmit={handleAddOnsSubmit} className={`${styles.form} ${styles.addOnForm}`}>
       <h1 className={styles.title}>Pick add-ons</h1>
       <p className={styles.description}>
         Add-ons help enhance your gaming experience.

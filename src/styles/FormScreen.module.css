@@ -35,6 +35,10 @@
   .form {
     max-width: 450px;
   }
+
+  .addOnForm{
+    width: 105%;
+  }
   
   .inputGroup {
     margin-bottom: 1.5rem;
@@ -110,6 +114,8 @@
     border: none;
     font-size: 1rem;
     font-family: 'Ubuntu Bold';
+    position: relative;
+    right: 6%;
   }
 
   .backButton:hover{
