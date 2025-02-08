@@ -134,6 +134,8 @@
 @media (max-width: 700px) {
   .container {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
     background: #f0f6ff;
@@ -142,7 +144,8 @@
 
   .formContent {
     padding: 1rem;
-    margin-top: -4.5rem; /* Overlap with sidebar */
+    margin-top: -25vh; 
+    width: 90%;
   }
 
   .form {
@@ -150,7 +153,14 @@
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5rem; /* Space for fixed buttons */
+    margin-bottom: 5rem; 
+  }
+  .input{
+    width: 90%;
+  }
+
+  .nextButton{
+    left:-6%;
   }
 
   .buttonGroup {
@@ -166,8 +176,12 @@
   .title {
     font-size: 1.5rem;
   }
+  .error{
+    right: 3%;
+  }
 
   .description {
-    font-size: 0.875rem;
+    font-size: 1rem;
+    line-height: 145%;
   }
 }
