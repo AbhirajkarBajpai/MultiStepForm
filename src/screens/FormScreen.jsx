@@ -166,7 +166,9 @@ export default function FormScreen() {
             {currentStep === 4 && renderSummary()}
           </>
         ) : (
-          <ThankYou />
+          <div className={styles.form}>
+            <ThankYou />
+          </div>
         )}
       </div>
     </div>
