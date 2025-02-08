@@ -127,11 +127,18 @@
       grid-template-columns: 1fr;
       gap: 0.75rem;
     }
+
+    .planInfo{
+      display: flex;
+      flex-direction: column;
+      gap: .7vh;
+    }
   
     .planCard {
       display: flex;
       align-items: center;
       padding: 1rem;
+      width: 85%;
     }
   
     .icon {

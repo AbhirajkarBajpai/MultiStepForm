@@ -56,12 +56,14 @@
   @media (max-width: 700px) {
     .sidebar {
       display: flex;
-      align-items: center;
+      height: 25vh;
+      margin: -20% auto 5%;
+      /* align-items: center; */
       justify-content: center;
       flex-direction: row;
       gap: 5vw;
       width: 100vw;
-      min-height: 172px;
+      /* min-height: 172px; */
       border-radius: 0;
       background-image: url("../assets/images/bg-sidebar-mobile.svg");
       background-size: cover;
