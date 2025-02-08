@@ -88,7 +88,7 @@ export default function FormScreen() {
   );
 
   const renderSummary = () => (
-    <form onSubmit={handleConfirm} className={styles.form}>
+    <form onSubmit={handleConfirm} className={styles.form} style={{width:'105%'}}>
       <h1 className={styles.title}>Finishing up</h1>
       <p className={styles.description}>Double-check everything looks OK before confirming.</p>
 
