@@ -1,89 +1,68 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { setStep } from '../store/formSlice'
-import styles from '../styles/Summary.module.css'
+import { useSelector, useDispatch } from "react-redux"
+import { setStep } from "../store/formSlice"
+import styles from "../styles/Summary.module.css"
 
-function Summary() {
+const addons = {
+  onlineService: { name: "Online service", monthlyPrice: 1, yearlyPrice: 10 },
+  largerStorage: { name: "Larger storage", monthlyPrice: 2, yearlyPrice: 20 },
+  customizableProfile: { name: "Customizable profile", monthlyPrice: 2, yearlyPrice: 20 },
+}
+
+const plans = {
+  arcade: { monthlyPrice: 9, yearlyPrice: 90 },
+  advanced: { monthlyPrice: 12, yearlyPrice: 120 },
+  pro: { monthlyPrice: 15, yearlyPrice: 150 },
+}
+
+export default function Summary() {
   const dispatch = useDispatch()
-  const { formData } = useSelector((state) => state.form)
-  const { selectedPlan, isYearly, addOns } = formData
+  const { plan, addons: selectedAddons } = useSelector((state) => state.form.formData)
+  const isYearly = plan.billing === "yearly"
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(setStep(5))
-  }
+  const planPrice = isYearly ? plans[plan.type].yearlyPrice : plans[plan.type].monthlyPrice
+  const planPriceText = isYearly ? `$${planPrice}/yr` : `$${planPrice}/mo`
 
-  const totalAmount = () => {
-    const planPrice = selectedPlan.price
-    const addOnsTotal = addOns.reduce((total, addon) => total + addon.price, 0)
-    return planPrice + addOnsTotal
-  }
+  const selectedAddonsList = Object.entries(selectedAddons)
+    .filter(([, isSelected]) => isSelected)
+    .map(([addonId]) => ({
+      name: addons[addonId].name,
+      price: isYearly ? addons[addonId].yearlyPrice : addons[addonId].monthlyPrice,
+    }))
+
+  const totalPrice = selectedAddonsList.reduce((sum, addon) => sum + addon.price, planPrice)
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <h1 className={styles.title}>Finishing up</h1>
-      <p className={styles.description}>
-        Double-check everything looks OK before confirming.
-      </p>
-
+    <div>
       <div className={styles.summaryCard}>
         <div className={styles.planRow}>
-          <div>
-            <h2 className={styles.planName}>
-              {selectedPlan.name} ({isYearly ? 'Yearly' : 'Monthly'})
-            </h2>
-            <button
-              type="button"
-              className={styles.changeButton}
-              onClick={() => dispatch(setStep(2))}
-            >
+          <div className={styles.planInfo}>
+            <span className={styles.planName}>
+              {plan.type.charAt(0).toUpperCase() + plan.type.slice(1)} ({plan.billing})
+            </span>
+            <span className={styles.changeLink} onClick={() => dispatch(setStep(2))}>
               Change
-            </button>
+            </span>
           </div>
-          <span className={styles.planPrice}>
-            ${selectedPlan.price}/{isYearly ? 'yr' : 'mo'}
-          </span>
+          <span className={styles.planPrice}>{planPriceText}</span>
         </div>
 
-        {addOns.length > 0 && (
-          <>
-            <div className={styles.divider} />
-            <div className={styles.addOns}>
-              {addOns.map((addon) => (
-                <div key={addon.name} className={styles.addOnRow}>
-                  <span className={styles.addOnName}>{addon.name}</span>
-                  <span className={styles.addOnPrice}>
-                    +${addon.price}/{isYearly ? 'yr' : 'mo'}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        <div className={styles.totalRow}>
-          <span className={styles.totalLabel}>
-            Total (per {isYearly ? 'year' : 'month'})
-          </span>
-          <span className={styles.totalAmount}>
-            ${totalAmount()}/{isYearly ? 'yr' : 'mo'}
-          </span>
-        </div>
+        {selectedAddonsList.map((addon, index) => (
+          <div key={index} className={styles.addonRow}>
+            <span className={styles.addonName}>{addon.name}</span>
+            <span className={styles.addonPrice}>
+              +${addon.price}/{isYearly ? "yr" : "mo"}
+            </span>
+          </div>
+        ))}
       </div>
 
-      <div className={styles.buttonGroup}>
-        <button
-          type="button"
-          className={`${styles.button} ${styles.backButton}`}
-          onClick={() => dispatch(setStep(3))}
-        >
-          Go Back
-        </button>
-        <button type="submit" className={`${styles.button} ${styles.confirmButton}`}>
-          Confirm
-        </button>
+      <div className={styles.totalRow}>
+        <span className={styles.totalLabel}>Total (per {isYearly ? "year" : "month"})</span>
+        <span className={styles.totalPrice}>
+          ${totalPrice}/{isYearly ? "yr" : "mo"}
+        </span>
       </div>
-    </form>
+    </div>
   )
 }
 
-export default Summary

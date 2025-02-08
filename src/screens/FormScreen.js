@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setStep, updatePersonalInfo } from "../store/formSlice";
 import Sidebar from "../components/Sidebar";
@@ -5,13 +6,13 @@ import PlanSelection from "../components/PlanSelection";
 import AddOns from "../components/AddOns";
 import styles from "../styles/FormScreen.module.css";
 import PersonalInfoForm from "../components/PersonalInfoForm";
-// import Summary from "../components/Summary"
-// import ThankYou from "../components/ThankYou"
+import Summary from "../components/Summary";
+import ThankYou from "../components/ThankYou";
 
 export default function FormScreen() {
   const dispatch = useDispatch();
   const { currentStep, formData } = useSelector((state) => state.form);
-
+  const [isCompleted, setIsCompleted] = useState(false)
   const handlePersonalInfoSubmit = () => {
     // e.preventDefault();
     dispatch(setStep(2));
@@ -26,6 +27,11 @@ export default function FormScreen() {
     e.preventDefault();
     dispatch(setStep(4));
   };
+
+  const handleConfirm = (e) => {
+    e.preventDefault()
+    setIsCompleted(true)
+  }
 
   const renderPlanSelection = () => (
     <form onSubmit={handlePlanSubmit} className={styles.form}>
@@ -81,23 +87,48 @@ export default function FormScreen() {
     </form>
   );
 
+  const renderSummary = () => (
+    <form onSubmit={handleConfirm} className={styles.form}>
+      <h1 className={styles.title}>Finishing up</h1>
+      <p className={styles.description}>Double-check everything looks OK before confirming.</p>
+
+      <Summary />
+
+      <div className={styles.buttonGroup}>
+        <button type="button" className={`${styles.button} ${styles.backButton}`} onClick={() => dispatch(setStep(3))}>
+          Go Back
+        </button>
+        <button
+          type="submit"
+          className={`${styles.button} ${styles.nextButton}`}
+          style={{ backgroundColor: "#483eff" }}
+        >
+          Confirm
+        </button>
+      </div>
+    </form>
+  )
+
   return (
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.formContent}>
-        {currentStep === 1 && (
-          <PersonalInfoForm
+         {!isCompleted ? (
+          <>
+            {currentStep === 1 && <PersonalInfoForm
             styles={styles}
             formData={formData}
             updatePersonalInfo={updatePersonalInfo}
             dispatch={dispatch}
             handlePersonalInfoSubmit={handlePersonalInfoSubmit}
-          />
+          />}
+            {currentStep === 2 && renderPlanSelection()}
+            {currentStep === 3 && renderAddOns()}
+            {currentStep === 4 && renderSummary()}
+          </>
+        ) : (
+          <ThankYou />
         )}
-        {currentStep === 2 && renderPlanSelection()}
-        {currentStep === 3 && renderAddOns()}
-        {/* {currentStep === 4 && <Summary />}
-        {currentStep === 5 && <ThankYou />} */}
       </div>
     </div>
   );
