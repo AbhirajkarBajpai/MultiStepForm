@@ -12,20 +12,19 @@ import ThankYou from "../components/ThankYou";
 export default function FormScreen() {
   const dispatch = useDispatch();
   const { currentStep, formData } = useSelector((state) => state.form);
-  const [isCompleted, setIsCompleted] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768)
-    }
+      setIsMobile(window.innerWidth <= 700);
+    };
 
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
 
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
-
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handlePersonalInfoSubmit = () => {
     // e.preventDefault();
@@ -43,9 +42,9 @@ export default function FormScreen() {
   };
 
   const handleConfirm = (e) => {
-    e.preventDefault()
-    setIsCompleted(true)
-  }
+    e.preventDefault();
+    setIsCompleted(true);
+  };
 
   const renderPlanSelection = () => (
     <form onSubmit={handlePlanSubmit} className={styles.form}>
@@ -56,7 +55,11 @@ export default function FormScreen() {
 
       <PlanSelection />
 
-      <div className={`${styles.buttonGroup} ${isMobile ? styles.mobileButtons : ""}`}>
+      <div
+        className={`${styles.buttonGroup} ${
+          isMobile ? styles.mobileButtons : ""
+        }`}
+      >
         <button
           type="button"
           className={`${styles.button} ${styles.backButton}`}
@@ -75,7 +78,10 @@ export default function FormScreen() {
   );
 
   const renderAddOns = () => (
-    <form onSubmit={handleAddOnsSubmit} className={`${styles.form} ${styles.addOnForm}`}>
+    <form
+      onSubmit={handleAddOnsSubmit}
+      className={`${styles.form} ${styles.addOnForm}`}
+    >
       <h1 className={styles.title}>Pick add-ons</h1>
       <p className={styles.description}>
         Add-ons help enhance your gaming experience.
@@ -83,7 +89,11 @@ export default function FormScreen() {
 
       <AddOns />
 
-      <div className={`${styles.buttonGroup} ${isMobile ? styles.mobileButtons : ""}`}>
+      <div
+        className={`${styles.buttonGroup} ${
+          isMobile ? styles.mobileButtons : ""
+        }`}
+      >
         <button
           type="button"
           className={`${styles.button} ${styles.backButton}`}
@@ -102,14 +112,27 @@ export default function FormScreen() {
   );
 
   const renderSummary = () => (
-    <form onSubmit={handleConfirm} className={styles.form} style={{width:'105%'}}>
+    <form
+      onSubmit={handleConfirm}
+      className={`${styles.form} ${styles.summaryForm}`}
+    >
       <h1 className={styles.title}>Finishing up</h1>
-      <p className={styles.description}>Double-check everything looks OK before confirming.</p>
+      <p className={styles.description}>
+        Double-check everything looks OK before confirming.
+      </p>
 
       <Summary />
 
-      <div className={`${styles.buttonGroup} ${isMobile ? styles.mobileButtons : ""}`}>
-        <button type="button" className={`${styles.button} ${styles.backButton}`} onClick={() => dispatch(setStep(3))}>
+      <div
+        className={`${styles.buttonGroup} ${
+          isMobile ? styles.mobileButtons : ""
+        }`}
+      >
+        <button
+          type="button"
+          className={`${styles.button} ${styles.backButton}`}
+          onClick={() => dispatch(setStep(3))}
+        >
           Go Back
         </button>
         <button
@@ -121,21 +144,23 @@ export default function FormScreen() {
         </button>
       </div>
     </form>
-  )
+  );
 
   return (
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.formContent}>
-         {!isCompleted ? (
+        {!isCompleted ? (
           <>
-            {currentStep === 1 && <PersonalInfoForm
-            styles={styles}
-            formData={formData}
-            updatePersonalInfo={updatePersonalInfo}
-            dispatch={dispatch}
-            handlePersonalInfoSubmit={handlePersonalInfoSubmit}
-          />}
+            {currentStep === 1 && (
+              <PersonalInfoForm
+                styles={styles}
+                formData={formData}
+                updatePersonalInfo={updatePersonalInfo}
+                dispatch={dispatch}
+                handlePersonalInfoSubmit={handlePersonalInfoSubmit}
+              />
+            )}
             {currentStep === 2 && renderPlanSelection()}
             {currentStep === 3 && renderAddOns()}
             {currentStep === 4 && renderSummary()}

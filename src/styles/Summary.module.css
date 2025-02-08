@@ -80,7 +80,8 @@
   font-family: 'Ubuntu Bold';
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 700px) {
   .summaryCard {
     padding: 1rem;
   }

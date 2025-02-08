@@ -112,8 +112,17 @@
     transform: translateX(18px);
   }
 
+  @media (max-width: 1000px) and (min-width: 700px) {
+    .planCard{
+      width: 8vh;
+    }
+    .icon{
+      margin-bottom: 1rem;
+    }
+  }
 
-  @media (max-width: 768px) {
+
+  @media (max-width: 700px) {
     .planGrid {
       grid-template-columns: 1fr;
       gap: 0.75rem;
