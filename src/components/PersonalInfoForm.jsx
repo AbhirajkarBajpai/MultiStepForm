@@ -17,15 +17,28 @@ const PersonalInfoForm = ({
       newErrors.name = "This field is required";
       isValid = false;
     }
-    if (!formData.personalInfo.email.trim()) {
+
+    const email = formData.personalInfo.email.trim();
+    if (!email) {
       newErrors.email = "This field is required";
       isValid = false;
-    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.personalInfo.email)) {
+    } else if (!email.includes("@")) {
+      newErrors.email = "Email must contain @";
+      isValid = false;
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       newErrors.email = "Invalid email format";
       isValid = false;
     }
-    if (!formData.personalInfo.phone.trim()) {
+
+    const phone = formData.personalInfo.phone.trim();
+    if (!phone) {
       newErrors.phone = "This field is required";
+      isValid = false;
+    } else if (!/^\d+$/.test(phone)) {
+      newErrors.phone = "Only numbers are allowed";
+      isValid = false;
+    } else if (phone.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits";
       isValid = false;
     }
 
@@ -81,10 +94,14 @@ const PersonalInfoForm = ({
           type="tel"
           className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
           value={formData.personalInfo.phone}
-          onChange={(e) =>
-            dispatch(updatePersonalInfo({ phone: e.target.value }))
-          }
-          placeholder="e.g. +1 234 567 890"
+          onChange={(e) => {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 10) value = value.slice(0, 10);
+            dispatch(updatePersonalInfo({ phone: value }));
+          }}
+          onInput={(e) => (e.target.value = e.target.value.replace(/\D/g, ""))}
+          maxLength={10}
+          placeholder="e.g. 1234567890"
         />
         {errors.phone && <span className={styles.error}>{errors.phone}</span>}
       </div>
