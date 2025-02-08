@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from "react-redux"
 import { updatePlan } from "../store/formSlice"
 import styles from "../styles/PlanSelection.module.css"
-import { GamepadIcon as GameController, Monitor, Joystick } from "lucide-react"
+import arcadeIcon from '../assets/images/icon-arcade.svg'
+import advIcon from '../assets/images/icon-advanced.svg'
+import proIcon from '../assets/images/icon-pro.svg'
 
 const plans = [
   {
@@ -9,7 +11,7 @@ const plans = [
     name: "Arcade",
     monthlyPrice: 9,
     yearlyPrice: 90,
-    icon: GameController,
+    icon: arcadeIcon,
     iconClass: styles.arcade,
   },
   {
@@ -17,7 +19,7 @@ const plans = [
     name: "Advanced",
     monthlyPrice: 12,
     yearlyPrice: 120,
-    icon: Monitor,
+    icon: advIcon,
     iconClass: styles.advanced,
   },
   {
@@ -25,7 +27,7 @@ const plans = [
     name: "Pro",
     monthlyPrice: 15,
     yearlyPrice: 150,
-    icon: Joystick,
+    icon: proIcon,
     iconClass: styles.pro,
   },
 ]
@@ -50,7 +52,6 @@ export default function PlanSelection() {
     <div>
       <div className={styles.planGrid}>
         {plans.map((planOption) => {
-          const Icon = planOption.icon
           const price = plan.billing === "monthly" ? `$${planOption.monthlyPrice}/mo` : `$${planOption.yearlyPrice}/yr`
 
           return (
@@ -60,7 +61,7 @@ export default function PlanSelection() {
               onClick={() => handlePlanSelect(planOption.id)}
             >
               <div className={`${styles.icon} ${planOption.iconClass}`}>
-                <Icon size={20} color="white" />
+                <img src={planOption.icon} color="white" />
               </div>
               <div className={styles.planName}>{planOption.name}</div>
               <div className={styles.planPrice}>{price}</div>

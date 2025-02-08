@@ -1,11 +1,11 @@
-import { Check } from "lucide-react"
-import styles from "../styles/ThankYou.module.css"
+import styles from "../styles/ThankYou.module.css";
+import thanksIcon from '../assets/images/icon-thank-you.svg';
 
 function ThankYou() {
   return (
     <div className={styles.container}>
       <div className={styles.icon}>
-        <Check size={32} color="white" />
+        <img src={thanksIcon} color="white" />
       </div>
       <h1 className={styles.title}>Thank you!</h1>
       <p className={styles.message}>
